@@ -21,7 +21,12 @@ Shoulda::Matchers.configure do |config|
   end
 end
 
+Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
+
 RSpec.configure do |config|
+
+  config.include RequestSpecHelper, type: :request
+
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
   # If you're not using ActiveRecord, or you'd prefer not to run each of your
