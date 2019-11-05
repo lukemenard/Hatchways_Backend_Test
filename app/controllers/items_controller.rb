@@ -2,6 +2,10 @@ class ItemsController < ApplicationController
     before_action :set_todo
     before_action :set_todo_item, only: [:show, :update, :destroy]
 
+    def index
+        json_response(@todo.items)
+    end
+    
     def show
         json_response(@item)
     end
